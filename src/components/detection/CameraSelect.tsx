@@ -22,7 +22,7 @@ export function CameraSelect({
   return (
     <div className="space-y-2">
       <Label htmlFor="camera-select">Camera</Label>
-      <Select value={deviceId ?? undefined} onValueChange={onChange}>
+      <Select value={deviceId ?? ""} onValueChange={onChange}>
         <SelectTrigger id="camera-select" className="w-full">
           <SelectValue placeholder="Select a camera" />
         </SelectTrigger>
