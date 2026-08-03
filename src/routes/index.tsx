@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Live computer-vision helmet detection dashboard powered by a YOLO model running on your local inference server.",
+          "AI-powered safety monitoring: real-time YOLO helmet detection from your camera with confidence scores, FPS and latency metrics.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

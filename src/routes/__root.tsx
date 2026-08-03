@@ -77,11 +77,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "HelmetVision AI" },
-      { name: "description", content: "Real-time AI helmet detection and safety monitoring." },
+      { title: "HelmetVision AI — Real-Time Helmet Detection" },
+      { name: "description", content: "AI-powered safety monitoring: real-time YOLO helmet detection from your camera with confidence scores, FPS and latency metrics." },
       { name: "author", content: "HelmetVision AI" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "HelmetVision AI — Real-Time Helmet Detection" },
+      { name: "twitter:title", content: "HelmetVision AI — Real-Time Helmet Detection" },
+      { property: "og:description", content: "AI-powered safety monitoring: real-time YOLO helmet detection from your camera with confidence scores, FPS and latency metrics." },
+      { name: "twitter:description", content: "AI-powered safety monitoring: real-time YOLO helmet detection from your camera with confidence scores, FPS and latency metrics." },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
