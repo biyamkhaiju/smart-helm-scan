@@ -54,16 +54,14 @@ export function useCamera(): UseCameraResult {
     setStatus("requesting");
     setError(null);
     try {
-      const constraints: MediaStreamConstraints = {
-        audio: false,
-        video: deviceId
-          ? { deviceId: { exact: deviceId }, width: { ideal: 1280 }, height: { ideal: 720 } }
-          : {
-              facingMode: isMobile() ? "user" : undefined,
-              width: { ideal: 1280 },
-              height: { ideal: 720 },
-            },
+      const video: MediaTrackConstraints = {
+        width: { ideal: 1280 },
+        height: { ideal: 720 },
       };
+      if (deviceId) video.deviceId = { exact: deviceId };
+      else if (isMobile()) video.facingMode = "user";
+      const constraints: MediaStreamConstraints = { audio: false, video };
+
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
       streamRef.current = stream;
       if (videoRef.current) {
