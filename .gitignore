@@ -37,3 +37,7 @@ backend/best.pt
 backend/.venv/
 __pycache__/
 .env
+best.pt
+*.pt
+.venv/
+node_modules/
