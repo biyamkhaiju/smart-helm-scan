@@ -44,9 +44,9 @@ export class DetectionApiError extends Error {
   }
 }
 
-export async function getHealth(signal?: AbortSignal): Promise<HealthResponse> {
+export async function getHealth(signal?: AbortSignal | null): Promise<HealthResponse> {
   try {
-    const res = await fetch(`${API_BASE_URL}/health`, { signal });
+    const res = await fetch(`${API_BASE_URL}/health`, { signal: signal ?? null });
     if (!res.ok) throw new DetectionApiError("Detection server returned an error.", "server");
     return (await res.json()) as HealthResponse;
   } catch (err) {
@@ -61,7 +61,7 @@ export async function getHealth(signal?: AbortSignal): Promise<HealthResponse> {
 export async function predict(
   blob: Blob,
   confidence: number,
-  signal?: AbortSignal,
+  signal?: AbortSignal | null,
 ): Promise<PredictResponse> {
   const form = new FormData();
   form.append("file", blob, "frame.jpg");
@@ -69,7 +69,7 @@ export async function predict(
 
   let res: Response;
   try {
-    res = await fetch(`${API_BASE_URL}/predict`, { method: "POST", body: form, signal });
+    res = await fetch(`${API_BASE_URL}/predict`, { method: "POST", body: form, signal: signal ?? null });
   } catch {
     throw new DetectionApiError(
       "Detection server is unavailable. Please start the AI backend.",
