@@ -31,9 +31,9 @@ dist-ssr
 *.sln
 *.sw?
 
-# Model weights & python backend
-backend/best.pt
+# Model weights & Python backend
 *.pt
+!backend/best.pt
+
 backend/.venv/
-__pycache__/
-.env
+backend/__pycache__/
