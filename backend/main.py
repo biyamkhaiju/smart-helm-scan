@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from detector import HelmetDetector
 
-MODEL_PATH = os.getenv("MODEL_PATH", "best.pt")
+MODEL_PATH = os.getenv("MODEL_PATH", "best.onnx")
 ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*").split(",")
 
 app = FastAPI(title="HelmetVision AI", version="1.0.0")
