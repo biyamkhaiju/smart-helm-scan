@@ -17,27 +17,7 @@ import { useDetectionLoop } from "@/hooks/useDetectionLoop";
 import { getHealth, type HealthResponse } from "@/lib/detection";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "HelmetVision AI — Real-Time Helmet Detection" },
-      {
-        name: "description",
-        content:
-          "AI-powered safety monitoring: real-time YOLO helmet detection from your camera with confidence scores, FPS and latency metrics.",
-      },
-      { property: "og:title", content: "HelmetVision AI — Real-Time Helmet Detection" },
-      {
-        property: "og:description",
-        content:
-          "AI-powered safety monitoring: real-time YOLO helmet detection from your camera with confidence scores, FPS and latency metrics.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: Dashboard,
-});
+export const Route = createFileRoute("/")({ component: Dashboard });
 
 function Dashboard() {
   const camera = useCamera();
