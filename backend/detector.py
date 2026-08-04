@@ -2,20 +2,21 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import IO
 
 import cv2
 import numpy as np
 import torch
 from ultralytics import YOLO
-
 # Class IDs are mapped explicitly — never rely on names baked into the weights.
 CLASS_LABELS = {0: "NO HELMET", 1: "HELMET"}
 
 
 class HelmetDetector:
-    def __init__(self, model_path: str = "best.pt") -> None:
-        self.model_path = model_path
+    def __init__(self, model_path: str | None = None) -> None:
+        default_model_path = Path(__file__).resolve().parent / "best.pt"
+        self.model_path = model_path or str(default_model_path)
         self.model: YOLO | None = None
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
